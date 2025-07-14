@@ -1,17 +1,18 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #fff0f6;
-  color: #4b004b;
+  background-color: #fff0f6; /* rosa pastel muy suave */
+  color: #4b004b; /* lila oscuro */
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
 h1 {
-  background-color: #f2c2e0;
+  background-color: #f2c2e0; /* rosa claro */
   margin: 0;
   padding: 20px;
-  color: #5e005e;
+  color: #5e005e; /* lila oscuro */
+  user-select: none;
 }
 
 .malla {
@@ -20,45 +21,66 @@ h1 {
   overflow-x: auto;
   padding: 20px;
   gap: 15px;
+  scrollbar-width: thin;
+  scrollbar-color: #d88fd9 #ffe4f2;
+}
+
+.malla::-webkit-scrollbar {
+  height: 8px;
+}
+
+.malla::-webkit-scrollbar-thumb {
+  background-color: #d88fd9;
+  border-radius: 10px;
 }
 
 .semestre {
   min-width: 250px;
   flex-shrink: 0;
-  background-color: #ffe4f2;
+  background-color: #ffe4f2; /* rosa muy claro */
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #e0b0d1;
+  border: 1px solid #e0b0d1; /* lila pastel */
+  box-shadow: 0 2px 5px rgba(216,143,217,0.2);
 }
 
 .semestre h2 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #a64ca6;
+  color: #a64ca6; /* lila medio */
+  user-select: none;
 }
 
 .ramo {
-  background-color: #fbe1f2;
-  border: 2px solid #d88fd9;
+  background-color: #fbe1f2; /* rosa pastel */
+  border: 2px solid #d88fd9; /* lila pastel */
   border-radius: 8px;
   padding: 10px;
   margin: 5px 0;
   cursor: pointer;
-  transition: background-color 0.3s;
-  color: #5a005a;
+  transition: background-color 0.3s, color 0.3s;
+  color: #5a005a; /* lila oscuro */
+  font-weight: 600;
+  user-select: none;
 }
 
-.ramo:hover {
-  background-color: #f3c5e8;
+.ramo:hover:not(.bloqueado):not(.aprobado) {
+  background-color: #f3c5e8; /* rosa pastel un poco más fuerte */
 }
 
 .ramo.aprobado {
-  background-color: #c85fc8;
+  background-color: #c85fc8; /* lila más intenso */
   color: white;
   text-decoration: line-through;
+  cursor: default;
+  box-shadow: 0 0 8px 2px #c85fc8aa;
 }
 
 .ramo.bloqueado {
   opacity: 0.5;
   pointer-events: none;
+  cursor: not-allowed;
+  color: #a98aaa;
+  background-color: #f7e9f7;
+  border-color: #c1b1c1;
 }
